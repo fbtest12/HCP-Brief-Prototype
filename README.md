@@ -54,16 +54,15 @@ This is adjacent prototype work — not a representation of any internal Relevat
    │ 3. Delivery Agent        │  → delivery-package.md
    └──────────────────────────┘
                 │
-                ▼
-   ┌──────────────────────────┐
-   │ 4. QA Agent              │  → test-plan.md
-   └──────────────────────────┘
-                │
-                ▼
-   ┌──────────────────────────┐
-   │ 5. Compliance Review     │  → risk-review.md
-   └──────────────────────────┘
-                │
+         ┌──────┴──────┐
+         ▼             ▼
+   ┌───────────┐ ┌───────────────────┐
+   │ 4. QA     │ │ 5. Compliance     │  (parallel)
+   │ Agent     │ │ Review            │
+   └───────────┘ └───────────────────┘
+    → test-plan.md  → risk-review.md
+         │             │
+         └──────┬──────┘
                 ▼
    ┌──────────────────────────┐
    │ 6. Evaluator Agent       │  → eval.json + summary.md
