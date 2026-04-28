@@ -69,7 +69,7 @@ export default function HomePage() {
           traceable, compliance-reviewed delivery package.
         </p>
         <a
-          href="https://github.com/fbtest12/HCP-Brief-Prototype"
+          href="https://github.com/reckten/HCP-Brief-Prototype"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 rounded font-bold text-sm border border-white/20 text-white/70 hover:text-white hover:border-white/40 transition-all"
