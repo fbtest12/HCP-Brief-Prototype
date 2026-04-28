@@ -67,26 +67,26 @@ const ARTIFACT_TABS = [
 type TabId = (typeof ARTIFACT_TABS)[number]["id"];
 
 const BRIEF_META: Record<string, { title: string; subtitle: string; insight: string; insightColor: string }> = {
-  cardivex: {
-    title: "Cardivex Hypertension Education Initiative",
+  arventix: {
+    title: "Arventix Hypertension Education Initiative",
     subtitle: "EHR point-of-care · on-demand CME · KOL-weighted targeting · Southeast US",
     insight:
-      "This brief scored 80 — well-structured with clear trigger logic, KOL tiering, and a defined measurement plan. The 4 flags are addressable: unresolved Rx lift data partnership and frequency cap are typical pre-launch blockers. Run the Glucavance brief to compare how the pipeline responds to a weaker input.",
+      "This brief scored 80 — well-structured with clear trigger logic, KOL tiering, and a defined measurement plan. The 4 flags are addressable: unresolved Rx lift data partnership and frequency cap are typical pre-launch blockers. Run the Veltoza brief to compare how the pipeline responds to a weaker input.",
     insightColor: "#6E7E28",
   },
-  glucavance: {
-    title: "Glucavance Diabetes Management Campaign",
+  veltoza: {
+    title: "Veltoza Diabetes Management Campaign",
     subtitle: "Nationwide targeting · GLP-1 agonist · First-draft brief — intentionally underspecified",
     insight:
-      "This brief scored 54 — significantly below the Cardivex initiative (80). The compliance agent detected 8 flags including a critical CME independence violation, PHI exposure via patient BMI signal, and off-label risk from weight loss messaging. In a production system, a score below 65 would trigger a mandatory human review checkpoint before any asset proceeds to MLR. This demonstrates the pipeline's value as an early-warning layer.",
+      "This brief scored 54 — significantly below the Arventix initiative (80). The compliance agent detected 8 flags including a critical CME independence violation, PHI exposure via patient BMI signal, and off-label risk from weight loss messaging. In a production system, a score below 65 would trigger a mandatory human review checkpoint before any asset proceeds to MLR. This demonstrates the pipeline's value as an early-warning layer.",
     insightColor: "#C85C1E",
   },
 };
 
 export default function RunClient() {
   const searchParams = useSearchParams();
-  const briefId = searchParams.get("brief") ?? "cardivex";
-  const meta = BRIEF_META[briefId] ?? BRIEF_META.cardivex;
+  const briefId = searchParams.get("brief") ?? "arventix";
+  const meta = BRIEF_META[briefId] ?? BRIEF_META.arventix;
 
   const [stages, setStages] = useState<StageState[]>(INITIAL_STAGES);
   const [results, setResults] = useState<RunResults | null>(null);

@@ -4,4 +4,5 @@ runs/run-*/
 dist/
 *.js.map
 docs/interview-prep.md
+docs/demo-script.md
 web/.next/

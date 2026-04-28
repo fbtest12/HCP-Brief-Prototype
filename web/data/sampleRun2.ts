@@ -1,6 +1,6 @@
-export const GLUCAVANCE_BRIEF = `# HCP Engagement Brief — Glucavance Diabetes Management Campaign
+export const VELTOZA_BRIEF = `# HCP Engagement Brief — Veltoza Diabetes Management Campaign
 
-**Brand:** Glucavance (MedCore Therapeutics) [FICTIONAL — GLP-1 agonist class]
+**Brand:** Veltoza (MedCore Therapeutics) [FICTIONAL — GLP-1 agonist class]
 **Indication:** Type 2 diabetes with comorbid obesity
 **Brief owner:** Digital Marketing
 **Date:** Q2 2026
@@ -9,9 +9,9 @@ export const GLUCAVANCE_BRIEF = `# HCP Engagement Brief — Glucavance Diabetes 
 ---
 
 ## Campaign Objective
-Drive awareness of Glucavance among primary care physicians managing diabetes patients.
+Drive awareness of Veltoza among primary care physicians managing diabetes patients.
 Highlight the weight management benefits and once-weekly dosing convenience.
-Position Glucavance as the preferred option for patients who haven't responded to metformin.
+Position Veltoza as the preferred option for patients who haven't responded to metformin.
 
 **Primary metric:** TBD — either script lift or engagement rate, to be decided later.
 
@@ -28,7 +28,7 @@ Position Glucavance as the preferred option for patients who haven't responded t
 - EHR point-of-care messaging (vendor and trigger details TBD)
 - Email blasts to purchased HCP list
 - Programmatic digital display ads
-- Co-developed CME module with Glucavance brand team
+- Co-developed CME module with Veltoza brand team
 
 ---
 
@@ -46,9 +46,9 @@ Launch within 4 weeks. Marketing leadership wants to move fast.
 ## Open Questions
 None identified at this time.`;
 
-export const glucavanceRequirements = {
+export const veltozaRequirements = {
   objective:
-    "Drive awareness of Glucavance among primary care physicians managing Type 2 diabetes patients, with emphasis on weight management benefits and once-weekly dosing.",
+    "Drive awareness of Veltoza among primary care physicians managing Type 2 diabetes patients, with emphasis on weight management benefits and once-weekly dosing.",
   audience: {
     specialty: ["Primary Care", "Internal Medicine", "Nursing", "Physician Assistants"],
     geography: ["Nationwide — all US regions"],
@@ -68,7 +68,7 @@ export const glucavanceRequirements = {
   assumptions: [
     "EHR vendor and trigger logic to be determined after launch.",
     "Purchased HCP list available from marketing database.",
-    "CME module co-developed with Glucavance brand team for authenticity.",
+    "CME module co-developed with Veltoza brand team for authenticity.",
   ],
   blockers: [
     "No defined EHR trigger criteria.",
@@ -100,7 +100,7 @@ export const glucavanceRequirements = {
   recommended_path: "",
 };
 
-export const glucavanceEval = {
+export const veltozaEval = {
   requirement_coverage: 0.6,
   targeting_clarity: 0.4,
   qa_completeness: 0.65,
@@ -113,7 +113,7 @@ export const glucavanceEval = {
     "Off-label risk: weight management and BMI messaging requires explicit label support for the T2D indication — confirm with Medical Affairs before any content is drafted.",
     "Overbroad targeting: 'all PCPs nationwide' with no KOL tiering, specialty segmentation, or geographic prioritization — precision targeting is required before EHR trigger configuration.",
     "PHI exposure: using patient BMI > 30 as an HCP targeting signal constitutes indirect patient-level data use — Legal must review before this signal is incorporated into any trigger logic.",
-    "CME independence violation: modules co-developed with the Glucavance brand team cannot receive ACCME accreditation — independence boundary must be contractually established.",
+    "CME independence violation: modules co-developed with the Veltoza brand team cannot receive ACCME accreditation — independence boundary must be contractually established.",
     "Impermissible measurement: tracking A1c improvement and weight loss outcomes from HCP engagement requires a specific patient data use agreement that is not in place.",
     "Purchased HCP list: data provenance, permissible use, and opt-out status of the purchased email list have not been reviewed — do not activate until Legal confirms.",
     "Timeline infeasibility: 4-week launch cannot accommodate MLR review cycles, EHR vendor configuration, or CME accreditation timelines — realistic minimum is 12–16 weeks.",
@@ -121,7 +121,7 @@ export const glucavanceEval = {
   ],
 };
 
-export const glucavanceTraces = [
+export const veltozaTraces = [
   { stage: "intake", status: "success", duration_ms: 7821, output_summary: "Extracted objective — significant gaps detected: 8 missing or underspecified fields" },
   { stage: "planner", status: "success", duration_ms: 9102, output_summary: "Plan generated — 6 escalation points flagged before Phase 1 can begin" },
   { stage: "delivery", status: "success", duration_ms: 8430, output_summary: "Delivery package drafted with 5 UNRESOLVED markers — cannot be finalized without rework" },
@@ -130,7 +130,7 @@ export const glucavanceTraces = [
   { stage: "evaluator", status: "success", duration_ms: 3100, output_summary: "Overall score: 0.54 — human review required before any production work proceeds" },
 ];
 
-export const glucavancePlan = `# Execution Plan
+export const veltozaPlan = `# Execution Plan
 
 > ⚠ **This brief requires significant rework before a production execution plan can be finalized.** The items below represent a conditional plan — each phase is blocked by at least one unresolved issue from the brief.
 
@@ -138,7 +138,7 @@ export const glucavancePlan = `# Execution Plan
 - **Recommended path:** UNDETERMINED — brief does not provide sufficient information to recommend a primary channel without resolving targeting, trigger logic, and compliance blockers first.
 
 ## Escalation Points (Must Resolve Before Phase 1)
-1. **Label review:** Confirm with Medical Affairs whether weight management and BMI messaging is supported by the approved Glucavance indication. If not, all messaging must revert to T2D-only framing.
+1. **Label review:** Confirm with Medical Affairs whether weight management and BMI messaging is supported by the approved Veltoza indication. If not, all messaging must revert to T2D-only framing.
 2. **Targeting redesign:** Narrow from "all PCPs nationwide" to a defined specialty + geography segment with KOL tiering. Nationwide targeting without segmentation is not operationally viable.
 3. **PHI review:** Legal must confirm whether using patient BMI > 30 as an HCP targeting signal constitutes permissible data use under applicable regulations.
 4. **CME independence:** Establish contractual separation between brand team and CME content development. The co-development model as described cannot receive ACCME accreditation.
@@ -168,7 +168,7 @@ export const glucavancePlan = `# Execution Plan
 - Nationwide targeting with no segmentation — operationally unscalable and compliance-risky
 - Co-developed CME is a structural conflict, not a minor edit`;
 
-export const glucavanceDelivery = `# Delivery Package
+export const veltozaDelivery = `# Delivery Package
 
 > ⚠ **DRAFT — 5 sections marked UNRESOLVED. This package cannot be finalized until the brief is reworked.**
 
@@ -202,7 +202,7 @@ export const glucavanceDelivery = `# Delivery Package
 - Programmatic display targeting — not appropriate for this initiative type
 - 4-week launch timeline — not achievable`;
 
-export const glucavanceRiskReview = `# Risk Review Memo
+export const veltozaRiskReview = `# Risk Review Memo
 
 ## Summary
 This brief as submitted cannot proceed to production without significant rework. The pipeline has identified **8 flags** — 3 high severity and 1 critical. This is the highest risk profile surfaced in this review cycle.
@@ -211,7 +211,7 @@ This brief as submitted cannot proceed to production without significant rework.
 
 ### Flag 1: Off-Label Risk *(High)*
 - **Category:** Off-label promotion
-- **Description:** Weight management and BMI messaging is not confirmed to be within the approved Glucavance label for T2D. Promoting weight loss benefits without label support constitutes off-label promotion.
+- **Description:** Weight management and BMI messaging is not confirmed to be within the approved Veltoza label for T2D. Promoting weight loss benefits without label support constitutes off-label promotion.
 - **Recommendation:** Medical Affairs must confirm label scope before any content is drafted. If weight messaging is not supported, all references must be removed.
 
 ### Flag 2: Overbroad Targeting *(High)*
@@ -226,7 +226,7 @@ This brief as submitted cannot proceed to production without significant rework.
 
 ### Flag 4: CME Independence Violation *(Critical)*
 - **Category:** Regulatory compliance
-- **Description:** CME modules co-developed with the Glucavance brand team cannot receive ACCME accreditation. This is a structural violation of CME independence standards, not a minor edit.
+- **Description:** CME modules co-developed with the Veltoza brand team cannot receive ACCME accreditation. This is a structural violation of CME independence standards, not a minor edit.
 - **Recommendation:** Establish a contractually independent CME development process. Brand team involvement must be limited to scientific accuracy review only, with no editorial control.
 
 ### Flag 5: Impermissible Patient-Level Measurement *(High)*

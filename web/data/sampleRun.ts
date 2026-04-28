@@ -1,15 +1,15 @@
-export const SAMPLE_BRIEF = `# HCP Engagement Brief — Cardivex Hypertension Education Initiative
+export const SAMPLE_BRIEF = `# HCP Engagement Brief — Arventix Hypertension Education Initiative
 
-**Brand:** Cardivex (Meridian Therapeutics) [FICTIONAL BRAND — real drug class: ARB/antihypertensive]
+**Brand:** Arventix (Meridian Therapeutics) [FICTIONAL BRAND — real drug class: ARB/antihypertensive]
 **Indication:** Uncontrolled Hypertension in high-cardiovascular-risk patients
 **Brief owner:** Brand Marketing — HCP Engagement
 **Date:** Q2 2026
 **Status:** Draft for cross-functional review
 
 ## Campaign Objective
-Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Cardivex (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk. Initiative is education-led — focused on the point of clinical decision, not promotional conversion.
+Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Arventix (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk. Initiative is education-led — focused on the point of clinical decision, not promotional conversion.
 
-**Primary success metric:** Rx lift — measurable increase in Cardivex prescribing among engaged HCPs within 90 days of first content exposure, benchmarked against a matched non-exposed control cohort.
+**Primary success metric:** Rx lift — measurable increase in Arventix prescribing among engaged HCPs within 90 days of first content exposure, benchmarked against a matched non-exposed control cohort.
 
 ## Target Audience
 - **Tier 1 (KOL Influence Score ≥ 7.0):** Priority for EHR point-of-care placement.
@@ -26,7 +26,7 @@ Display at point of clinical decision when:
 3. Most recent documented BP > 140/90 mmHg
 4. HCP KOL Influence Score ≥ 4.0
 5. HCP has not received this card in the prior 7 days
-6. HCP has fewer than 20 Cardivex Rx in the past 90 days
+6. HCP has fewer than 20 Arventix Rx in the past 90 days
 
 ## Channel Mix
 1. EHR point-of-care messaging — sidebar education card at clinical trigger
@@ -38,7 +38,7 @@ Southeast US — Florida, Georgia, Tennessee, North Carolina, South Carolina`;
 
 export const sampleRequirements = {
   objective:
-    "Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Cardivex (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk.",
+    "Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Arventix (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk.",
   audience: {
     specialty: ["Internal Medicine", "Family Medicine", "Cardiology"],
     geography: [
@@ -72,7 +72,7 @@ export const sampleRequirements = {
   ],
   blockers: [
     "BP reading data availability within EHR trigger logic is unconfirmed.",
-    "CME content independence limits how prominently Cardivex branding can appear.",
+    "CME content independence limits how prominently Arventix branding can appear.",
     "Rx lift measurement requires legal sign-off on prescribing data sourcing.",
   ],
   dependencies: [
@@ -179,7 +179,7 @@ export const sampleDelivery = `# Delivery Package
 - BP reading > 140/90 mmHg (structured signal, if available)
 - KOL Influence Score ≥ 4.0
 - Frequency cap: 1x per week per HCP (pending compliance confirmation)
-- Suppression: HCPs with ≥ 20 Cardivex Rx in prior 90 days are excluded
+- Suppression: HCPs with ≥ 20 Arventix Rx in prior 90 days are excluded
 - Fallback: If structured BP data unavailable, trigger on ICD-10 I10 alone
 
 ## Content Format
@@ -195,7 +195,7 @@ export const sampleDelivery = `# Delivery Package
 export const sampleRiskReview = `# Risk Review Memo
 
 ## Summary
-Multi-channel HCP education initiative for Cardivex (fictional ARB) targeting primary care and cardiology HCPs in the Southeast US. Reasonable objectives with notable compliance risks.
+Multi-channel HCP education initiative for Arventix (fictional ARB) targeting primary care and cardiology HCPs in the Southeast US. Reasonable objectives with notable compliance risks.
 
 ## Flagged Concerns
 

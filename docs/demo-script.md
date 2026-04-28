@@ -1,118 +1,125 @@
-# Demo Script - HCP Brief Workflow (5-10 min)
+# Demo Script — HCP Brief Workflow Web Demo
+# hcp-brief-demo.vercel.app | ~5–8 minutes
 
-This script is the spoken narration for an interview walkthrough. Times are approximate. Keep it conversational; lean on the artifacts, not the slides.
-
----
-
-## 1. Opening (30 seconds)
-
-> "This is a fictional internal workflow prototype I built to explore what an HCP brief intake to delivery pipeline might look like if you wired it together with AI agents. Everything in it is made up - no real brand, no real drug, no PHI - but the structure mirrors how a real brand team brief moves through planning, delivery, QA, compliance, and evaluation."
-
-**Talking point:** Frame this as adjacent to Relevate Health's HCP engagement work, not internal knowledge.
+Keep this open on the side. Speak conversationally — don't read it verbatim.
 
 ---
 
-## 2. Brief Walkthrough (1 minute)
+## OPENING (30 sec)
+**[Screen: homepage]**
 
-**Open:** `briefs/sample-brief.md`
+> "I built this as a prototype to explore what an HCP engagement brief intake-to-delivery
+> pipeline looks like when you wire it together with AI agents. Everything is fictional —
+> no real PHI, no real brand — but the structure mirrors how a real brief moves through
+> planning, compliance, QA, and evaluation at a place like Relevate."
 
-> "The input is a markdown brief from a fictional brand team called BioReach Therapeutics. They want to run an education-led initiative around a fictional condition called Chronic Peripheral Signal Disruption, targeting neurologists and PCPs across five Northeast states. Two channels: EHR point-of-care sidebar cards, and on-demand CME modules."
-
-**Highlight quickly:**
-- Target Audience block with `[ILLUSTRATIVE]` codes.
-- Open Questions section - the brief explicitly admits gaps.
-- Risks and Compliance Notes.
-
-**Pause** (~2 seconds) and say:
-> "Notice the brief is realistic - not perfect. It has gaps. The workflow's job is to surface those gaps, not paper over them."
+One line if they ask why: *"I wanted something tangible I could show, not just describe."*
 
 ---
 
-## 3. Architecture Walkthrough (2 minutes)
+## THE HOMEPAGE (1 min)
+**[Screen: homepage — hero + pipeline strip]**
 
-**Open:** `src/pipeline.ts`
+Point to the 6-stage pipeline strip:
 
-> "The pipeline is six sequential agents. Each one is a single LLM call with a focused prompt."
+> "Six agents in sequence. Each one is a single focused LLM call — Brief Intake,
+> Strategy Planner, Delivery, then QA and Compliance run in parallel, and finally
+> an Evaluator that scores the full output."
 
-Walk through the stages out loud:
-1. **Intake** - markdown to structured JSON.
-2. **Planner** - JSON to phased execution plan.
-3. **Delivery** - JSON + plan to operational package.
-4. **QA** - JSON + delivery to test plan with 8 required categories.
-5. **Compliance** - JSON + delivery to flagged risk memo.
-6. **Evaluator** - everything upstream to a calibrated quality JSON.
+Key point to land:
+> "The parallelization isn't cosmetic. QA and Compliance both only need the
+> requirements and the delivery package — they don't depend on each other —
+> so running them simultaneously cuts total runtime by about 40%."
 
-**Open:** `prompts/` directory
+**[Scroll to brief cards]**
 
-> "Every prompt lives in markdown next to the code. This was deliberate. If a brand team wants to tighten the compliance prompt, they edit a markdown file - they don't touch TypeScript. That separation matters in regulated workflows."
-
-**Open:** `src/lib/`
-
-> "The lib layer handles the boring stuff: Anthropic SDK wrapper with prompt caching, Zod schemas for every typed output, a tracer that emits per-stage timing for AgentOps, and filesystem helpers."
-
-**Skip:** internal types unless asked.
+> "I built two briefs on purpose. Cardivex is well-scoped — good trigger logic,
+> clear KOL tiering, defined metrics. Glucavance is intentionally underspecified —
+> a first-draft brief a brand team might actually send over. Running both shows
+> how the pipeline responds to input quality."
 
 ---
 
-## 4. Artifact Walkthrough (3 minutes)
+## RUN CARDIVEX (2 min)
+**[Click: Run Cardivex Pipeline]**
 
-**Open:** `runs/sample-run/`
+While the pipeline animates:
+> "Each stage fires in order. You can see the output summary as it lands — what
+> the agent actually produced, not just that it ran."
 
-Walk through each file in order:
+Point out PARALLEL label when QA + Compliance run:
+> "There — QA and Compliance are running simultaneously. Both finish before
+> the Evaluator can start."
 
-### `requirements.json`
-> "The intake stage extracted structured fields. Notice the `open_questions` array - frequency cap, opt-out, measurement plan - these are gaps the brief surfaced. The agent did not invent answers."
+**[Pipeline completes — scroll to results]**
 
-### `plan.md`
-> "The planner picked EHR-triggered as primary, CME as secondary. Three phases. And critically, the Surfaced Ambiguities section at the bottom calls out that the audience scope is too broad. The workflow is not afraid to push back."
+> "Score of 80. ADEQUATE. Five quality dimensions — requirement coverage,
+> targeting clarity, QA completeness, risk detection, documentation quality.
+> The evaluator isn't self-congratulatory: targeting clarity scores 80 because
+> the KOL tiering criteria could be tighter. That's honest."
 
-### `delivery-package.md`
-> "Operational handoff. Audience table, trigger criteria, frequency cap, suppression rules, out-of-scope section. This is the artifact a brand team lead would actually approve."
+Point to Pipeline Insight callout:
+> "The 4 flags are real pre-launch blockers — unresolved Rx lift data partnership,
+> frequency cap not specified. In a production system, a flag count above a threshold
+> would trigger a mandatory human review checkpoint before any asset goes to MLR."
 
-### `test-plan.md`
-> "Eighteen tests across all eight required categories - including adversarial cases like prompt injection in free-text fields. Each test has a pass/fail criterion that's machine-checkable where possible, and the plan flags which tests still need human compliance judgment."
-
-### `risk-review.md`
-> "Four flags - audience overbreadth, fair-balance feasibility, CME independence, code mapping. Each has a severity, a category, and a concrete recommendation. And the disclaimer at the bottom is required by the prompt."
-
----
-
-## 5. Eval and Trace (1 minute)
-
-**Open:** `eval.json`
-
-> "The evaluator scored this run at 0.82 overall. Targeting clarity is the lowest at 0.76 - that's honest. The audience is deliberately broad in this brief, and the workflow flagged it. If the evaluator returned 0.95 across the board, I'd be more worried, not less."
-
-**Open:** `trace.json`
-
-> "Per-stage timing, status, retry count, and a one-line output summary. This is the AgentOps view: every stage is observable and individually retryable. In a production system this would feed a dashboard."
+Point to the artifact tabs (Plan / Delivery / Compliance):
+> "These aren't raw JSON — they're the actual formatted documents the agents produced.
+> The Plan is what a strategist would review. The Delivery package is what ops would
+> execute against. The Compliance tab is the risk memo."
 
 ---
 
-## 6. Live Run Option (1 minute)
+## RUN GLUCAVANCE (1–2 min)
+**[Navigate back → Run Glucavance Pipeline]**
 
-> "If I run `npm run demo` right now with an API key set, it processes the brief end-to-end in roughly 10-12 seconds and writes a fresh `runs/run-<timestamp>/` directory with the same shape of artifacts. The pre-generated `runs/sample-run/` is here so this whole walkthrough works without an API key."
+> "Now the weak brief. Same pipeline, weaker input."
 
-**Optional:** show terminal output if time and key are available.
+When results load:
+> "54. RISK. Eight flags versus four — including a critical one: the CME is
+> co-developed with the brand team, which is an independence violation. There's
+> also a PHI risk because the brief uses patient BMI as a targeting signal, and
+> an off-label risk from weight loss messaging for a diabetes drug."
+
+Land the key point:
+> "In a production system, anything below 65 triggers mandatory human review.
+> That's the value of a calibrated evaluator — it's not just generating outputs,
+> it's telling you which outputs you shouldn't trust yet."
 
 ---
 
-## 7. Closing (30 seconds)
+## UNDER THE HOOD (1 min — only if they ask)
 
-> "What I wanted to show is the shape of the problem: how an AI workflow can take an unstructured brief and produce structured, reviewable, auditable outputs - including the unflattering parts. The compliance flags, the surfaced ambiguities, the calibrated eval scores. That's the part I think matters most for HCP engagement at Relevate's scale - precision and trustworthy outputs, not just generation."
+> "The backend is TypeScript with the Anthropic SDK. Six agents, each a focused
+> LLM call. Prompts live in markdown files separate from the code — a brand ops
+> person can tighten the compliance prompt without touching TypeScript."
+
+> "The frontend is Next.js with Server-Sent Events for the live stage animation.
+> Pre-run mode replays real artifact data with simulated delays — keeps it under
+> Vercel's timeout limit while still showing the actual pipeline behavior."
+
+> "The eval scores aren't calibrated against a labeled human-review set — that's
+> the honest limitation. In production you'd run 50–100 reviewed briefs through
+> it and tune the rubric."
 
 ---
 
-## What to Highlight vs. Skip
+## CLOSING (30 sec)
 
-**Highlight:**
-- Surfaced ambiguities (planner) and flags (compliance) - the workflow's willingness to push back.
-- Calibrated eval scores (not 0.95+).
-- Prompts as markdown - editable by non-engineers.
-- Per-stage trace - AgentOps thinking.
+> "What I wanted to show is the shape of the problem: how an AI workflow takes
+> an unstructured brief and produces structured, reviewable, auditable outputs —
+> including the unflattering parts. The compliance flags, the surfaced ambiguities,
+> the calibrated scores. That precision layer is what makes this trustworthy at
+> the scale Relevate operates at."
 
-**Skip unless asked:**
-- TypeScript build configuration.
-- Zod schema internals.
-- Specific token counts or pricing.
-- Implementation details of the retry loop.
+---
+
+## QUICK ANSWERS — if asked
+
+| Question | Answer |
+|---|---|
+| Why not stream live API calls? | Vercel free tier has a 10s function timeout — pre-run mode replays real outputs with delays. Same result, no cold-start risk during a demo. |
+| Why two briefs? | Shows the pipeline is discriminating, not just generative. A pipeline that scores everything 85+ tells you nothing. |
+| Why parallel QA + Compliance? | They share inputs (requirements + delivery) but have no shared outputs — safe to parallelize, cuts runtime ~40%. |
+| What would make this production-ready? | Structured outputs via tool use (not regex JSON), human-in-loop checkpoint at compliance, calibrated eval against labeled runs, resumable checkpointing, real HCP data connectors. |
+| What didn't work? | JSON parsing was brittle early on — regex on LLM output breaks. Switched to stricter prompting + validation. Also the evaluator is self-graded — honest limitation. |

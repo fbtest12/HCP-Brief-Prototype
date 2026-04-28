@@ -12,8 +12,8 @@ const STAGE_LABELS = [
 
 const BRIEFS = [
   {
-    id: "cardivex",
-    brand: "Cardivex",
+    id: "arventix",
+    brand: "Arventix",
     company: "Meridian Therapeutics",
     indication: "Uncontrolled Hypertension",
     drugClass: "ARB / antihypertensive",
@@ -26,8 +26,8 @@ const BRIEFS = [
     talkingPoint: "A well-structured brief with clear EHR trigger logic, KOL tiering, and a defined measurement plan. Demonstrates the pipeline under normal operating conditions.",
   },
   {
-    id: "glucavance",
-    brand: "Glucavance",
+    id: "veltoza",
+    brand: "Veltoza",
     company: "MedCore Therapeutics",
     indication: "Type 2 Diabetes + Obesity",
     drugClass: "GLP-1 agonist",

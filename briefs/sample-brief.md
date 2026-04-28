@@ -1,6 +1,6 @@
-# HCP Engagement Brief — Cardivex Hypertension Education Initiative
+# HCP Engagement Brief — Arventix Hypertension Education Initiative
 
-**Brand:** Cardivex (Meridian Therapeutics) [FICTIONAL BRAND — real drug class: ARB/antihypertensive]
+**Brand:** Arventix (Meridian Therapeutics) [FICTIONAL BRAND — real drug class: ARB/antihypertensive]
 **Indication:** Uncontrolled Hypertension in high-cardiovascular-risk patients
 **Brief owner:** Brand Marketing — HCP Engagement
 **Date:** Q2 2026
@@ -10,9 +10,9 @@
 
 ## Campaign Objective
 
-Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Cardivex (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk. Initiative is **education-led** — focused on the point of clinical decision, not promotional conversion.
+Increase primary-care and cardiology HCP awareness of updated hypertension treatment guidelines and the clinical profile of Arventix (a fictional ARB) as an option for patients with uncontrolled blood pressure and elevated cardiovascular risk. Initiative is **education-led** — focused on the point of clinical decision, not promotional conversion.
 
-**Primary success metric:** Rx lift — measurable increase in Cardivex prescribing among engaged HCPs within 90 days of first content exposure, benchmarked against a matched non-exposed control cohort.
+**Primary success metric:** Rx lift — measurable increase in Arventix prescribing among engaged HCPs within 90 days of first content exposure, benchmarked against a matched non-exposed control cohort.
 
 ---
 
@@ -36,14 +36,14 @@ Increase primary-care and cardiology HCP awareness of updated hypertension treat
 
 ## EHR Trigger Logic
 
-Display the Cardivex education sidebar card at the **point of clinical decision** when all of the following conditions are met:
+Display the Arventix education sidebar card at the **point of clinical decision** when all of the following conditions are met:
 
 1. HCP specialty = Internal Medicine OR Family Medicine OR Cardiology
 2. Patient encounter includes ICD-10 code **I10** (Essential Hypertension)
 3. Most recent documented blood pressure reading > 140/90 mmHg (uncontrolled signal)
 4. HCP KOL Influence Score ≥ 4.0 (Tier 1 or Tier 2)
 5. HCP has not received this card in the prior 7 days (frequency cap — pending confirmation)
-6. HCP has fewer than 20 Cardivex Rx written in the past 90 days (suppress for already-converted prescribers)
+6. HCP has fewer than 20 Arventix Rx written in the past 90 days (suppress for already-converted prescribers)
 
 **KOL cascade branch:** If HCP KOL Score ≥ 7.0 AND peer network includes ≥ 50 other target-segment HCPs, flag for coordinated KOL outreach — this HCP is a network amplifier.
 
@@ -65,12 +65,12 @@ Rep-delivered detail aids and paid display are explicitly out of scope for this 
 
 | Metric | Definition | Target |
 |---|---|---|
-| **Rx lift (primary)** | % increase in Cardivex Rx among engaged HCPs vs. matched control | ≥ 12% lift at 90 days |
+| **Rx lift (primary)** | % increase in Arventix Rx among engaged HCPs vs. matched control | ≥ 12% lift at 90 days |
 | EHR card engagement rate | % of triggered cards opened or expanded | ≥ 20% |
 | CME module completion | % of HCPs who started a module and completed it | ≥ 55% |
 | Email click-through | % of follow-up emails resulting in CME module open | ≥ 14% |
 | KOL cascade coefficient | Avg. peer Rx change per Tier 1 HCP engaged | Baseline in Phase 1 |
-| Time-to-first-Rx | Days from first content exposure to first Cardivex Rx | Track only |
+| Time-to-first-Rx | Days from first content exposure to first Arventix Rx | Track only |
 
 **Note:** Rx lift tracking requires HCP-level prescribing data from a licensed data partner. Legal must confirm data use agreement before this metric is activated. No patient-level data is used anywhere in this initiative.
 
@@ -81,7 +81,7 @@ Rep-delivered detail aids and paid display are explicitly out of scope for this 
 - All assets must be MLR-approved before any live placement.
 - EHR card: Short-form (60–90s), must include fair-balance and ISI reference. Format constraints for the EHR sidebar require design review to fit required disclosures.
 - CME module: Peer-reviewed, accreditation partner must confirm independence from promotional content.
-- All content must reference updated hypertension guidelines (2023 AHA/ACC) as the educational anchor — not Cardivex efficacy data.
+- All content must reference updated hypertension guidelines (2023 AHA/ACC) as the educational anchor — not Arventix efficacy data.
 
 ---
 
@@ -124,7 +124,7 @@ Rep-delivered detail aids and paid display are explicitly out of scope for this 
 ## Known Blockers
 
 - BP reading data availability within EHR trigger logic is unconfirmed — may require manual rule fallback using ICD-10 I10 alone.
-- CME content independence requirements limit how prominently Cardivex branding can appear in module content.
+- CME content independence requirements limit how prominently Arventix branding can appear in module content.
 - Rx lift measurement requires legal sign-off on prescribing data sourcing — currently unresolved.
 
 ---

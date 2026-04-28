@@ -2,7 +2,7 @@ import {
   sampleTraces, sampleRequirements, sampleEval, samplePlan, sampleDelivery, sampleRiskReview,
 } from "@/data/sampleRun";
 import {
-  glucavanceTraces, glucavanceRequirements, glucavanceEval, glucavancePlan, glucavanceDelivery, glucavanceRiskReview,
+  veltozaTraces, veltozaRequirements, veltozaEval, veltozaPlan, veltozaDelivery, veltozaRiskReview,
 } from "@/data/sampleRun2";
 
 export const maxDuration = 30;
@@ -20,14 +20,14 @@ const STAGE_DELAYS: Record<string, number> = {
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
-  const briefId = url.searchParams.get("brief") ?? "cardivex";
+  const briefId = url.searchParams.get("brief") ?? "arventix";
 
-  const traces = briefId === "glucavance" ? glucavanceTraces : sampleTraces;
-  const requirements = briefId === "glucavance" ? glucavanceRequirements : sampleRequirements;
-  const evalResult = briefId === "glucavance" ? glucavanceEval : sampleEval;
-  const plan = briefId === "glucavance" ? glucavancePlan : samplePlan;
-  const delivery = briefId === "glucavance" ? glucavanceDelivery : sampleDelivery;
-  const riskReview = briefId === "glucavance" ? glucavanceRiskReview : sampleRiskReview;
+  const traces = briefId === "veltoza" ? veltozaTraces : sampleTraces;
+  const requirements = briefId === "veltoza" ? veltozaRequirements : sampleRequirements;
+  const evalResult = briefId === "veltoza" ? veltozaEval : sampleEval;
+  const plan = briefId === "veltoza" ? veltozaPlan : samplePlan;
+  const delivery = briefId === "veltoza" ? veltozaDelivery : sampleDelivery;
+  const riskReview = briefId === "veltoza" ? veltozaRiskReview : sampleRiskReview;
 
   const encoder = new TextEncoder();
 

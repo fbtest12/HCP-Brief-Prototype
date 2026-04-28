@@ -32,7 +32,7 @@ Relevate Health operates at the intersection of HCP engagement, omnichannel acti
 - **AgentOps-style observability** — per-stage timing, token usage, and status in `trace.json`
 - **Calibrated evaluation scoring** across five quality dimensions with human-review flags
 
-This is adjacent prototype work — not a representation of any internal Relevate process. The brand (Cardivex / Meridian Therapeutics) and indication (fictional ARB for hypertension) are illustrative. No real PHI, no real HCP data.
+This is adjacent prototype work — not a representation of any internal Relevate process. The brand (Arventix / Meridian Therapeutics) and indication (fictional ARB for hypertension) are illustrative. No real PHI, no real HCP data.
 
 ---
 
@@ -164,7 +164,7 @@ Start with `runs/sample-run/summary.md` for a plain-English overview.
 
 The included brief (`briefs/sample-brief.md`) simulates a real HCP engagement initiative:
 
-- **Brand:** Cardivex (fictional ARB / Meridian Therapeutics)
+- **Brand:** Arventix (fictional ARB / Meridian Therapeutics)
 - **Indication:** Uncontrolled hypertension in high-cardiovascular-risk patients
 - **Trigger logic:** ICD-10 I10 + BP > 140/90 + KOL Influence Score ≥ 4.0
 - **Channels:** EHR point-of-care sidebar → on-demand CME → 48h follow-up email
