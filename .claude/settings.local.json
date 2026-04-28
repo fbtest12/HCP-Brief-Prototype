@@ -15,7 +15,8 @@
       "Bash(node -p \"const e=JSON.parse\\(require\\('fs'\\).readFileSync\\('runs/sample-run/eval.json','utf8'\\)\\); 'score:'+e.overall_score+' flags:'+e.flags.length+' dims:'+Object.keys\\(e\\).join\\(','\\)\")",
       "Bash(npm uninstall *)",
       "Bash(npm run *)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add *)"
     ]
   }
 }
