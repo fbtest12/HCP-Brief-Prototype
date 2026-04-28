@@ -6,13 +6,17 @@ A 6-stage agentic pipeline that reads a structured HCP engagement brief in markd
 
 ## Screenshots
 
-### Workflow Architecture
+### Homepage — Brief Selector
 
-![Workflow Diagram](docs/screenshots/workflow-diagram.png)
+![Homepage](docs/screenshots/homepage.png)
 
-### Report Output
+![Brief Selector](docs/screenshots/brief-selector.png)
 
-![Run Report](docs/screenshots/report.png)
+### Pipeline Run & Results
+
+![Agent Pipeline](docs/screenshots/pipeline.png)
+
+![Evaluation Results](docs/screenshots/results.png)
 
 ---
 
