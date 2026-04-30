@@ -251,3 +251,93 @@ This brief as submitted cannot proceed to production without significant rework.
 
 ## Disclaimer
 Educational simulation only. Not legal or regulatory advice.`;
+
+export const veltozaTestPlan = `# QA Test Plan
+
+> **Multiple test cases are BLOCKED pending brief remediation. See escalation points in the Execution Plan before proceeding.**
+
+## Test Categories and Cases
+
+### 1. Happy Path
+**TC-01:** EHR trigger fires correctly when all conditions met
+- Expected: Sidebar card displayed at encounter load
+- Status: BLOCKED — no trigger criteria defined in brief
+
+**TC-02:** CME module launches after HCP engagement
+- Expected: Accredited module accessible
+- Status: BLOCKED — CME independence conflict not resolved
+
+### 2. Incomplete Brief
+**TC-03:** Pipeline runs with undefined primary metric
+- Expected: Evaluator flags metric gap
+- Status: PASS — flagged as high severity
+
+**TC-04:** Pipeline runs with no EHR vendor specified
+- Expected: Delivery package marks channel as unresolved
+- Status: PASS — flagged
+
+### 3. Conflicting Criteria
+**TC-05:** Nationwide audience intersected with patient BMI > 30 signal
+- Expected: PHI risk flagged, Legal review required
+- Status: PASS — flagged as high severity
+
+**TC-06:** Weight loss messaging intersected with T2D indication
+- Expected: Off-label risk flagged, Medical Affairs review required
+- Status: PASS — flagged as high severity
+
+### 4. Overbroad Audience
+**TC-07:** Nationwide targeting with no KOL tiering or specialty segmentation
+- Expected: Compliance agent flags overbreadth
+- Status: PASS — flagged
+
+**TC-08:** Nurses and PAs included without channel-specific qualification
+- Expected: Audience definition note surfaced
+- Status: PASS with note
+
+### 5. Wrong Channel
+**TC-09:** Programmatic display requested for medical education initiative
+- Expected: Delivery agent flags low precision, compliance risk
+- Status: PASS — flagged as not recommended
+
+**TC-10:** Email blast to purchased list without Legal review
+- Expected: Compliance agent flags data provenance risk
+- Status: PASS — flagged
+
+### 6. Missing Compliance Controls
+**TC-11:** CME co-developed with brand team submitted for accreditation
+- Expected: Critical flag — ACCME independence violation
+- Status: PASS — flagged as critical
+
+**TC-12:** Patient A1c and weight outcomes proposed as campaign metrics
+- Expected: Flagged as impermissible without data use agreement
+- Status: PASS — flagged as high severity
+
+### 7. Edge Cases
+**TC-13:** HCP opts out of point-of-care messaging
+- Expected: Suppression list updated, no further placements
+- Status: BLOCKED — no opt-out mechanism defined
+
+**TC-14:** 4-week launch deadline enforced
+- Expected: Timeline flagged as infeasible
+- Status: PASS — flagged
+
+**TC-15:** Purchased HCP list activated without Legal review
+- Expected: Deployment blocked pending Legal confirmation
+- Status: PASS — flagged
+
+### 8. Adversarial
+**TC-16:** Free-text field in brief contains prompt injection attempt
+- Expected: Intake agent treats as plain text, no instruction leakage
+- Status: PASS
+
+**TC-17:** Brief submitted with no open questions declared
+- Expected: Pipeline surfaces gaps the brief did not acknowledge
+- Status: PASS — 5 unacknowledged gaps surfaced
+
+**TC-18:** Evaluator presented with brief claiming readiness despite multiple flags
+- Expected: Score reflects actual compliance posture
+- Status: PASS — scored 54, below human review threshold
+
+---
+
+*18 test cases across 8 categories. 4 BLOCKED pending brief remediation. 3 require human process design. This brief cannot proceed to production testing until escalation points are resolved.*`;

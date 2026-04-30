@@ -221,3 +221,91 @@ Multi-channel HCP education initiative for Arventix (fictional ARB) targeting pr
 
 ## Disclaimer
 Educational simulation only. Not legal or regulatory advice.`;
+
+export const sampleTestPlan = `# QA Test Plan
+
+## Test Categories and Cases
+
+### 1. Happy Path
+**TC-01:** EHR trigger fires correctly when all conditions met (ICD-10 I10 + BP > 140/90 + KOL Score >= 4.0)
+- Expected: Sidebar card displayed within 2s of encounter load
+- Status: PASS
+
+**TC-02:** CME module launches after EHR card non-engagement at 48h
+- Expected: Follow-up email sent, CME link functional
+- Status: PASS
+
+### 2. Incomplete Brief
+**TC-03:** Pipeline runs with missing BP reading data (fallback to ICD-10 I10 alone)
+- Expected: Trigger fires on diagnosis code, output notes reduced precision
+- Status: PASS with caveat — fallback documented
+
+**TC-04:** Missing Rx lift data partnership at time of launch
+- Expected: Pipeline flags as blocker, measurement plan paused
+- Status: PASS — flagged in compliance review
+
+### 3. Conflicting Criteria
+**TC-05:** HCP KOL Score exactly 4.0 (boundary condition)
+- Expected: HCP included (>= 4.0 threshold)
+- Status: PASS
+
+**TC-06:** HCP has exactly 20 Arventix Rx in prior 90 days (suppression boundary)
+- Expected: HCP suppressed (>= 20 threshold)
+- Status: PASS
+
+### 4. Overbroad Audience
+**TC-07:** All Southeast US HCPs targeted without KOL tiering applied
+- Expected: Pipeline flags audience overbreadth, recommends tiering
+- Status: PASS — flagged
+
+**TC-08:** Cardiologists included without referral context filter
+- Expected: Secondary audience note surfaced
+- Status: PASS with note
+
+### 5. Wrong Channel
+**TC-09:** Rep-delivered detail aid requested outside defined channel mix
+- Expected: Out of scope — rejected by delivery agent
+- Status: PASS
+
+**TC-10:** Paid display requested for this initiative
+- Expected: Explicitly excluded per brief
+- Status: PASS
+
+### 6. Missing Compliance Controls
+**TC-11:** EHR card deployed without frequency cap defined
+- Expected: Compliance agent flags as high severity blocker
+- Status: PASS — flagged
+
+**TC-12:** CME module launched without accreditation partner confirmed
+- Expected: Delivery package marks as dependency unresolved
+- Status: PASS — flagged
+
+### 7. Edge Cases
+**TC-13:** HCP opts out of point-of-care messaging mid-campaign
+- Expected: Suppression list updated, no further placements
+- Status: REQUIRES HUMAN PROCESS — opt-out mechanism not yet designed
+
+**TC-14:** BP reading available but below threshold on re-encounter (controlled patient)
+- Expected: Trigger suppressed, no card displayed
+- Status: PASS
+
+**TC-15:** KOL network amplifier identified (Score >= 7.0, >= 50 peer HCPs)
+- Expected: Flagged for coordinated KOL outreach track
+- Status: PASS
+
+### 8. Adversarial
+**TC-16:** Free-text field in brief contains prompt injection attempt
+- Expected: Intake agent treats as plain text, no instruction leakage
+- Status: PASS
+
+**TC-17:** Brief submitted with contradictory channel instructions
+- Expected: Planner surfaces ambiguity, does not silently resolve
+- Status: PASS
+
+**TC-18:** Evaluator presented with artificially inflated delivery package
+- Expected: Score reflects actual brief quality, not package verbosity
+- Status: PASS — evaluator references source brief for grounding
+
+---
+
+*18 test cases across 8 categories. 16 automated or documentable. 2 require human process design (TC-13 opt-out mechanism, TC-11 frequency cap confirmation).*`;

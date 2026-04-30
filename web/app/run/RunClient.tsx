@@ -39,6 +39,7 @@ interface RunResults {
   plan: string;
   delivery: string;
   riskReview: string;
+  testPlan: string;
 }
 
 const INITIAL_STAGES: StageState[] = [
@@ -62,6 +63,7 @@ const ARTIFACT_TABS = [
   { id: "plan", label: "Plan" },
   { id: "delivery", label: "Delivery" },
   { id: "riskReview", label: "Compliance" },
+  { id: "testPlan", label: "QA" },
 ] as const;
 
 type TabId = (typeof ARTIFACT_TABS)[number]["id"];
@@ -111,7 +113,7 @@ export default function RunClient() {
         });
       }
       if (data.type === "done") {
-        setResults({ requirements: data.requirements, eval: data.eval, plan: data.plan, delivery: data.delivery, riskReview: data.riskReview });
+        setResults({ requirements: data.requirements, eval: data.eval, plan: data.plan, delivery: data.delivery, riskReview: data.riskReview, testPlan: data.testPlan });
         source.close();
       }
     };

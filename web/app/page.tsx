@@ -62,7 +62,7 @@ export default function HomePage() {
         >
           One structured brief in.
           <br />Six agent stages.
-          <br />Eight reviewable artifacts out.
+          <br />A compliance-reviewed delivery package out.
         </h1>
         <p className="text-white/60 text-base max-w-lg mb-8">
           A sequential AI pipeline that translates an HCP engagement brief into a complete,

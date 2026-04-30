@@ -1,8 +1,8 @@
 import {
-  sampleTraces, sampleRequirements, sampleEval, samplePlan, sampleDelivery, sampleRiskReview,
+  sampleTraces, sampleRequirements, sampleEval, samplePlan, sampleDelivery, sampleRiskReview, sampleTestPlan,
 } from "@/data/sampleRun";
 import {
-  veltozaTraces, veltozaRequirements, veltozaEval, veltozaPlan, veltozaDelivery, veltozaRiskReview,
+  veltozaTraces, veltozaRequirements, veltozaEval, veltozaPlan, veltozaDelivery, veltozaRiskReview, veltozaTestPlan,
 } from "@/data/sampleRun2";
 
 export const maxDuration = 30;
@@ -28,6 +28,7 @@ export async function GET(request: Request) {
   const plan = briefId === "veltoza" ? veltozaPlan : samplePlan;
   const delivery = briefId === "veltoza" ? veltozaDelivery : sampleDelivery;
   const riskReview = briefId === "veltoza" ? veltozaRiskReview : sampleRiskReview;
+  const testPlan = briefId === "veltoza" ? veltozaTestPlan : sampleTestPlan;
 
   const encoder = new TextEncoder();
 
@@ -60,7 +61,7 @@ export async function GET(request: Request) {
 
       await runStage("evaluator");
 
-      send({ type: "done", requirements, eval: evalResult, plan, delivery, riskReview });
+      send({ type: "done", requirements, eval: evalResult, plan, delivery, riskReview, testPlan });
       controller.close();
     },
   });
